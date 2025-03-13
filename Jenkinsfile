@@ -4,7 +4,7 @@ pipeline {
     // Define environment variables
     environment {
         TERRAGRUNT_DIRECTORY = "${WORKSPACE}/environments/dev/s3"
-        TERRAFORM_MODULE_DIRECTORY = "${WORKSPACE}/Modules/s3_module"
+        TERRAFORM_MODULE_DIRECTORY = "${WORKSPACE}/modules/s3_module"
     }
     
     // Define pipeline stages
