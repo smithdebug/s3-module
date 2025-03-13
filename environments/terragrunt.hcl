@@ -4,7 +4,7 @@ remote_state {
     encrypt        = true
     bucket         = "terraform-state-backend-jenkins"
     key            = "${path_relative_to_include()}/terraform.tfstate"
-    region         = "us-east-1"
+    region         = "${local.region}"
     
   }
 
@@ -20,12 +20,13 @@ generate "provider" {
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 provider "aws" {
-  region = "${locals.region_vars.locals.aws_region}"
+  region = "${local.region}"
 }
 EOF
 }
 
 locals {
-  account_vars = read_terragrunt_config(find_in_parent_folders("account.hcl"))
-  region_vars = read_terragrunt_config(find_in_parent_folders("region.hcl"))
+  env_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
+  region       = local.env_vars.locals.aws_region
+
 }
