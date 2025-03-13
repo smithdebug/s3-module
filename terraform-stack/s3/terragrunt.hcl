@@ -27,5 +27,5 @@ EOF
 
 locals {
   account_vars = read_terragrunt_config("account.hcl")
-  region_vars = read_terragrunt_config(find_in_parent_folders("region.hcl"))
+  region_vars = read_terragrunt_config("../ap-southeast-2/region.hcl")
 }
