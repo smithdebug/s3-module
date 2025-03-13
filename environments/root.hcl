@@ -1,6 +1,6 @@
 remote_state {
   backend = "s3"
-  config {
+  config = {
     encrypt        = true
     bucket         = "terraform-state-backend-jenkins"
     key            = "${path_relative_to_include()}/terraform.tfstate"
