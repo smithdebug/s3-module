@@ -3,7 +3,7 @@ pipeline {
     
     // Define environment variables
     environment {
-        TERRAGRUNT_DIRECTORY = "${WORKSPACE}/terraform-stack/s3"
+        TERRAGRUNT_DIRECTORY = "${WORKSPACE}/terraform-stack"
         TERRAFORM_MODULE_DIRECTORY = "${WORKSPACE}/Modules/s3_module"
     }
     
