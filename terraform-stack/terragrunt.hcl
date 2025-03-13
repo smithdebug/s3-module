@@ -18,10 +18,11 @@ remote_state {
 generate "provider" {
   path = "providers.tf"
   if_exists = "overwrite_terragrunt"
-  contents  = <EOF
+  contents  = <<EOF
 provider "aws" {
-  region = ${locals.region_vars.locals.aws_region}
+  region = "${locals.region_vars.locals.aws_region}"
 }
+EOF
 }
 
 locals {
