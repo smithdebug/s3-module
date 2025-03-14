@@ -5,6 +5,11 @@ pipeline {
     environment {
         TERRAGRUNT_DIRECTORY = "${WORKSPACE}/environments/dev/s3"
         TERRAFORM_MODULE_DIRECTORY = "${WORKSPACE}/modules/s3_module"
+
+        AWS_CREDENTIALS = credentials('my-aws')
+        AWS_ACCESS_KEY_ID = "${env.AWS_CREDENTIALS_USR}"
+        AWS_SECRET_ACCESS_KEY = "${env.AWS_CREDENTIALS_PSW}"
+
     }
     
     // Define pipeline stages
